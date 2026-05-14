@@ -37,7 +37,7 @@ app.use((req, res, next) => {
   res.locals.cartItemCount = req.session.cart.totalQty || 0;
   next();
 });
-
+/*
 app.get('/', (req, res) => {
   res.send(`
     Hello World - [REEMPLAZAR POR SU NOMBRE]
@@ -45,7 +45,9 @@ app.get('/', (req, res) => {
     Puerto: ${port} | Entorno: ${process.env.NODE_ENV || 'development'}
   `);
 });
-// app.use('/',         productRoutes);
+*/
+
+app.use('/',         productRoutes);
 app.use('/cart',     cartRoutes);
 app.use('/checkout', checkoutRoutes);
 
