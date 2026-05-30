@@ -1,3 +1,4 @@
+// controllers/storeAuthController.js  (1/2) — Registro
 const { Store } = require('../models');
 
 // GET /store/register
@@ -33,6 +34,9 @@ const register = async (req, res) => {
   }
 };
 
+// controllers/storeAuthController.js  (2/2) — Login y Logout
+
+// GET /store/login
 const showLogin = (req, res) => {
   res.render('store-auth/login', { layout: false, error: null });
 };

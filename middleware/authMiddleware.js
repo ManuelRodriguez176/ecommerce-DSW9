@@ -1,3 +1,8 @@
+// middleware/authMiddleware.js
+/**
+ * requireStoreAuth — protege rutas del panel admin de tienda
+ * requireUserAuth  — protege rutas del dashboard de usuario
+ */
 const requireStoreAuth = (req, res, next) => {
   if (req.session && req.session.storeId) {
     return next();
