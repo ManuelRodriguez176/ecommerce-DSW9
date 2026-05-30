@@ -1,3 +1,4 @@
+// models/index.js — version completa
 const sequelize = require('../config/database');
 const Product   = require('./Product');
 const Order     = require('./Order');

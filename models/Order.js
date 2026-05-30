@@ -15,8 +15,11 @@ const Order = sequelize.define('Order', {
   paymentId: { type: DataTypes.STRING },
   // pending | paid | payment_failed | canceled
   status:    { type: DataTypes.STRING,         defaultValue: 'pending' },
-  user_id: { type: DataTypes.INTEGER, allowNull: true, references: { model: 'users', key: 'id' }
-}
+  user_id: {
+  type: DataTypes.INTEGER,
+  allowNull: true,
+  references: { model: 'users', key: 'id' }
+  }
 });
 
 module.exports = Order;
