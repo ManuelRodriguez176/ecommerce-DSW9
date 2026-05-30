@@ -3,7 +3,9 @@ const express  = require('express');
 const router   = express.Router();
 const ctrl     = require('../controllers/storeAdminController');
 const { requireStoreAuth } = require('../middleware/authMiddleware');
-
+const paypalCtrl = require('../controllers/paypalController');
+router.get( '/payout', paypalCtrl.showPayout);
+router.post('/payout', paypalCtrl.processPayout);
 // Todas las rutas requieren sesion de tienda
 router.use(requireStoreAuth);
 
@@ -20,6 +22,3 @@ router.post('/settings',              ctrl.updateSettings);
 
 module.exports = router;
 
-const paypalCtrl = require('../controllers/paypalController');
-router.get( '/payout', paypalCtrl.showPayout);
-router.post('/payout', paypalCtrl.processPayout);
