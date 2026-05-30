@@ -8,6 +8,8 @@ const sequelize    = require('./config/database');
 const storeAuthRoutes = require('./routes/storeAuth');
 const { attachLocals } = require('./middleware/authMiddleware');
 const userAuthRoutes = require('./routes/userAuth');
+const storeAdminRoutes = require('./routes/storeAdmin');
+const customerRoutes = require('./routes/customer');
 // const { Product, Order, OrderItem } = require('./models');
 
 const productRoutes  = require('./routes/products');
@@ -39,6 +41,7 @@ app.use(['/store/login', '/store/register',
   (req, res, next) => { res.locals.layout = false; next(); }
 );
 app.use('/store', storeAuthRoutes);
+app.use('/store-admin', storeAdminRoutes);
 
 app.use((req, res, next) => {
   if (!req.session.cart) {
@@ -49,6 +52,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/user', userAuthRoutes);
+app.use('/customer', customerRoutes);
 /*
 app.get('/', (req, res) => {
   res.send(`
